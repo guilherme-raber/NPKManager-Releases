@@ -1,45 +1,49 @@
-# Instalação e uso
+# Instalação e uso — NPKManager 1.7.0
 
-Este guia descreve o fluxo para operadores. Baixe o aplicativo apenas pela página [GitHub Releases do NPKManager-Releases](https://github.com/guilherme-raber/NPKManager-Releases/releases). A release indicará quais sistemas e arquivos estão disponíveis.
+## Baixar e iniciar
+
+1. Baixe [`NPKManager-1.7.0.exe`](https://github.com/guilherme-raber/NPKManager-Releases/releases/download/v1.7.0/NPKManager-1.7.0.exe) pela página oficial de [Releases](https://github.com/guilherme-raber/NPKManager-Releases/releases).
+2. Salve o executável em uma pasta de sua preferência e abra-o no Windows x64.
+3. Não é necessário instalar Python para usar esse executável.
+
+A versão distribuída é destinada a Windows x64 e foi validada no ambiente Windows disponível. O teste em uma instalação Windows limpa não foi realizado; não há uma versão mínima oficial do Windows declarada. Se o sistema bloquear a execução, siga as políticas de segurança da sua organização e confirme a origem do arquivo antes de prosseguir.
+
+**Verificação do arquivo**
+
+```text
+Arquivo: NPKManager-1.7.0.exe
+SHA-256: 94C3A0708BC763448160218726766E76CA06D1AAAEF3ED61DA85035E7C59D041
+```
 
 ## Antes de começar
 
-- Confirme que você tem autorização para administrar os equipamentos e agende uma janela de manutenção.
-- Verifique o acesso de rede aos equipamentos: a porta Winbox configurada é testada antes da tentativa SSH.
-- Tenha credenciais SSH autorizadas e acesso à pasta do servidor de pacotes, quando a operação incluir RouterOS.
-- Prepare uma pasta local protegida para os exports .rsc e relatórios.
+- Tenha autorização para administrar os equipamentos e programe uma janela de manutenção.
+- Confirme o acesso de rede às portas Winbox e SSH configuradas e use credenciais autorizadas.
+- Para atualizar RouterOS, prepare um servidor HTTP ou HTTPS acessível com os pacotes NPK oficiais correspondentes à arquitetura e à versão pretendida. A operação somente de RouterBOOT não precisa de servidor NPK.
+- Escolha uma pasta protegida para backups e relatórios. Exports `.rsc` podem conter informações sensíveis.
 
-No Windows, execute o arquivo independente da release. Ele não requer instalação separada do Python. Outros sistemas só são suportados quando listados nos arquivos da release.
+## Analisar e atualizar
 
-## Preparar o servidor de pacotes
+1. Na tela de conexão, informe os alvos, as portas Winbox e SSH, o usuário e a senha. Você pode digitar uma rede ou importar uma lista de alvos por arquivo.
+2. Para operações RouterOS, informe o endereço HTTP/HTTPS do servidor de pacotes. Escolha também a pasta de relatórios.
+3. Selecione o escopo: RouterOS + RouterBOOT, somente RouterOS ou somente RouterBOOT.
+4. Clique em **Analisar rede**. A análise consulta os equipamentos e prepara um plano; não altera configurações nem reinicia os roteadores.
+5. Na lista de resultados, revise versões, pacotes, espaço disponível, verificações de segurança e eventuais bloqueios. Selecione somente os equipamentos desejados.
+6. Salve os exports `.rsc` na pasta escolhida e confirme que os backups foram concluídos.
+7. Confira novamente o plano de cada equipamento e aprove explicitamente a atualização. Não prossiga se o resultado ou o equipamento não forem os esperados.
+8. Acompanhe o resultado e consulte os relatórios na pasta configurada. Nos modos que não aguardam reconexão, faça uma nova análise para verificar a versão instalada.
 
-Para uma operação RouterOS, configure uma pasta HTTP ou HTTPS acessível que permita listar os arquivos NPK. Use pacotes oficiais MikroTik, com nome e conteúdo originais, compatíveis com a versão e arquitetura do equipamento. Mantenha os pacotes necessários diretamente na pasta publicada.
+## Regras de versão e CHR
 
-HTTPS é recomendado. HTTP não protege a conexão com TLS. Não substitua o conteúdo de um NPK mantendo o mesmo nome durante uma manutenção. A operação Somente RouterBOOT não precisa do servidor de NPK.
+O NPKManager mantém a linha principal instalada: RouterOS v6 continua em v6 e RouterOS v7 continua em v7. Não há migração automática v6 → v7 nem downgrade automático.
 
-## Executar uma manutenção
-
-1. Informe os endereços ou alvos autorizados, as portas Winbox e SSH, o usuário e a senha.
-2. Configure o endereço HTTP/HTTPS do servidor de pacotes para operações RouterOS e escolha onde salvar relatórios.
-3. Escolha o escopo: RouterOS + RouterBOOT, Somente RouterOS ou Somente RouterBOOT.
-4. Clique em Analisar rede. A análise coleta informações e prepara um plano; não altera configurações nem reinicia o equipamento.
-5. Revise os resultados. Confira cada equipamento, a versão e os pacotes propostos. Resolva bloqueios antes de prosseguir.
-6. Selecione apenas os equipamentos que deseja manter. Salve os exports .rsc na pasta local e confirme que os backups foram concluídos.
-7. Revise novamente o plano, aprove explicitamente a atualização e confirme a operação.
-8. Aguarde o resultado e consulte os relatórios. Em modos que não aguardam a reconexão, faça uma nova análise para verificar a versão instalada.
-
-O modo combinado pode realizar etapas de RouterOS e RouterBOOT conforme o equipamento e o plano. RouterBOOT não se aplica ao MikroTik CHR. Não desligue nem desconecte um equipamento durante uma atualização ou reinicialização.
+No MikroTik CHR, RouterBOOT é apresentado como **N/A (CHR)**. Se for escolhido RouterOS + RouterBOOT, somente RouterOS é considerado; não há upgrade nem segundo reboot de RouterBOOT. Se for escolhido somente RouterBOOT, o programa informa que não se aplica e não inicia uma operação.
 
 ## Segurança e resultados
 
-- flagged=yes: requer revisão manual e bloqueia a atualização automática. O indicador é um alerta, não uma prova conclusiva de invasão. O aplicativo não tenta limpar ou corrigir esse estado.
-- FLAGGED_FIELD_UNAVAILABLE: algumas respostas de firmware legado não apresentam o campo flagged. O estado permanece não verificado e não significa que o equipamento está seguro; o fluxo pode prosseguir somente se as outras verificações forem aprovadas.
-- Resposta ausente inesperada, inválida, ambígua ou erro de consulta: pode deixar o estado de segurança desconhecido ou inválido e bloquear a operação.
-- RouterOS 6 e 7: o aplicativo não realiza migração automática entre versões principais nem downgrade.
-- CHR: RouterBOOT é indicado como não aplicável; as verificações de segurança e as demais validações de RouterOS continuam ativas.
+- `flagged=yes` é um indicador que exige revisão manual e bloqueia a atualização automática. Não é, por si só, prova de invasão, e o programa não limpa esse indicador.
+- Em firmware legado que não apresenta o campo, o estado pode aparecer como `FLAGGED_FIELD_UNAVAILABLE`. Isso significa que o campo não pôde ser verificado; não equivale a `SAFE`. O fluxo só pode prosseguir se as outras verificações forem aprovadas.
+- Uma resposta inesperada, inválida ou ambígua, falta de permissão ou falha de consulta pode bloquear o equipamento. Outras verificações de segurança e prechecks também podem impedir uma atualização.
+- O arquivo `.rsc` é um export textual, não um backup completo do equipamento. O NPKManager não restaura configurações automaticamente.
 
-## Proteger backups e relatórios
-
-O arquivo .rsc é um export textual de configuração, não um backup completo do equipamento. Pode conter informações sensíveis. Restrinja o acesso à pasta, não publique nem envie os arquivos em chamados abertos, e siga o procedimento de proteção de dados da sua organização.
-
-Leia as mensagens do aplicativo e confirme que o backup está disponível antes de aprovar a atualização. O NPKManager não restaura configurações automaticamente.
+Restrinja o acesso às pastas de backup e relatório. Não publique nem envie exports em canais abertos.
