@@ -2,6 +2,7 @@
 
 ## 1.7.0
 
+- Documentação pública ampliada com instruções de instalação e operação, limites de segurança, backups e preparação do servidor NPK.
 - Atualização controlada de RouterOS com análise prévia, revisão do plano e aprovação do operador.
 - Suporte aprimorado a MikroTik CHR: RouterBOOT é não aplicável e não provoca um segundo reboot.
 - Detalhes do equipamento permitem consultar valores longos com rolagem horizontal.
