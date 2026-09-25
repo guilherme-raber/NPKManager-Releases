@@ -40,7 +40,7 @@ O servidor deve retornar tamanho válido por `Content-Length` (normalmente em um
 
 ## Nomes reconhecidos
 
-Os exemplos abaixo correspondem aos formatos aceitos na versão 1.7.0. Mantenha os nomes originais dos pacotes oficiais:
+Os exemplos abaixo correspondem aos formatos aceitos na versão 1.7.1. Mantenha os nomes originais dos pacotes oficiais:
 
 ```text
 # RouterOS v7 — arquitetura depois da versão

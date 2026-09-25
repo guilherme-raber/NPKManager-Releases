@@ -2,7 +2,7 @@
 
 O NPKManager ajuda operadores a analisar equipamentos MikroTik RouterOS, revisar operações planejadas, salvar exports de configuração e executar somente a manutenção aprovada.
 
-**Versão disponível: 1.7.0 · executável Windows x64**
+**Versão disponível: 1.7.1 · executável Windows x64**
 
 - [Baixar a versão mais recente](https://github.com/guilherme-raber/NPKManager-Releases/releases/latest)
 - [Instalação e guia de operação](INSTALACAO-E-USO.md)
