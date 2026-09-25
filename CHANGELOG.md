@@ -1,5 +1,11 @@
 # Histórico de versões
 
+## 1.7.1
+
+- Novo ícone oficial multirresolução, redesenhado para melhorar a leitura em tamanhos pequenos.
+- No Windows, as janelas preservam o ícone ICO multirresolução.
+- Guias públicos e checksum foram atualizados para o executável v1.7.1.
+
 ## 1.7.0
 
 - Documentação pública ampliada com instruções de instalação e operação, limites de segurança, backups e preparação do servidor NPK.

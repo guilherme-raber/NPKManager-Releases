@@ -1,19 +1,19 @@
-# Instalação e uso — NPKManager 1.7.0
+# Instalação e uso — NPKManager 1.7.1
 
-Este guia descreve a distribuição pública do NPKManager 1.7.0 para Windows x64. A aplicação realiza operações administrativas em roteadores; use-a apenas em equipamentos sob sua responsabilidade e dentro de uma janela de manutenção aprovada.
+Este guia descreve a distribuição pública do NPKManager 1.7.1 para Windows x64. A aplicação realiza operações administrativas em roteadores; use-a apenas em equipamentos sob sua responsabilidade e dentro de uma janela de manutenção aprovada.
 
 ## Baixar e iniciar
 
 1. Abra a página de [Releases](https://github.com/guilherme-raber/NPKManager-Releases/releases/latest).
-2. Em **Assets**, baixe `NPKManager-1.7.0.exe` e salve-o em uma pasta local.
+2. Em **Assets**, baixe `NPKManager-1.7.1.exe` e salve-o em uma pasta local.
 3. Execute o arquivo no Windows x64. Python não precisa estar instalado.
 
 O executável foi testado no ambiente Windows disponível, mas não em uma instalação Windows limpa. Não há uma versão mínima oficial do Windows declarada. Se o Windows ou as políticas da sua organização exibirem um aviso, confirme a origem do arquivo e siga as políticas de segurança locais antes de executá-lo.
 
-SHA-256 publicado para `NPKManager-1.7.0.exe`:
+SHA-256 publicado para `NPKManager-1.7.1.exe`:
 
 ```text
-94c3a0708bc763448160218726766e76ca06d1aaaef3ed61da85035e7c59d041
+CF130457130E252371D13B1A5E7CFE4F739FD60842871E2A9D9AD712092A58EA
 ```
 
 ## Preparação
