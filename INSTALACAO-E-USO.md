@@ -1,20 +1,25 @@
-# Instalação e uso — NPKManager 1.7.2
+# Instalação e uso — NPKManager 1.8.0
 
-Este guia descreve a distribuição pública do NPKManager 1.7.2 para Windows x64. A aplicação realiza operações administrativas em roteadores; use-a apenas em equipamentos sob sua responsabilidade e dentro de uma janela de manutenção aprovada.
+Este guia descreve os pacotes públicos do NPKManager 1.8.0 para Windows x64, Linux x86_64 e macOS (Apple Silicon e Intel). A aplicação realiza operações administrativas em roteadores; use-a apenas em equipamentos sob sua responsabilidade e dentro de uma janela de manutenção aprovada.
 
-## Baixar e iniciar
+## Baixar, verificar e iniciar
 
 1. Abra a página de [Releases](https://github.com/guilherme-raber/NPKManager-Releases/releases/latest).
-2. Em **Assets**, baixe `NPKManager-1.7.2.exe` e salve-o em uma pasta local.
-3. Execute o arquivo no Windows x64. Python não precisa estar instalado.
+2. Em **Assets**, baixe o pacote para seu sistema e o arquivo `.sha256` de mesmo nome.
+3. Confira o SHA-256 publicado antes de iniciar o programa.
 
-O executável também foi validado no AMD Ryzen 5 5500 com Windows x64 em que a v1.7.1 não iniciava. Ainda não foi testado em uma instalação Windows limpa. Não há uma versão mínima oficial do Windows declarada. Se o Windows ou as políticas da sua organização exibirem um aviso, confirme a origem do arquivo e siga as políticas de segurança locais antes de executá-lo.
+| Sistema | Pacote |
+|---|---|
+| Windows x64 | `NPKManager-1.8.0.exe` |
+| Linux x86_64 | `NPKManager-Linux-x86_64.zip` |
+| macOS Apple Silicon (arm64) | `NPKManager-macos-arm64.zip` |
+| macOS Intel (x86_64) | `NPKManager-macos-x86_64.zip` |
 
-SHA-256 publicado para `NPKManager-1.7.2.exe`:
+No Windows, execute o `.exe`. No Linux, extraia o ZIP e inicie o executável incluído em uma sessão gráfica. A execução requer ambiente gráfico Tk disponível; o suporte entre distribuições e versões de glibc não foi certificado amplamente.
 
-```text
-337D787B54D192D7E360EC5A266ACDD078CBE87D9248C8C283A7DD5BC5B8DD9C
-```
+No macOS, extraia o ZIP e abra `NPKManager.app`. O pacote usa assinatura ad hoc e não possui Developer ID nem notarização Apple. Se o Gatekeeper bloquear a abertura, confirme que o app veio da release oficial e que o SHA-256 confere. Se decidir confiar no arquivo, use **Ajustes do Sistema > Privacidade e Segurança > Abrir Mesmo Assim** após a tentativa de abertura. Consulte [as instruções da Apple](https://support.apple.com/pt-br/102445). Não desative o Gatekeeper.
+
+Os quatro pacotes foram construídos em runners nativos e passaram por 230 testes automatizados por plataforma e autoteste do pacote. Linux usa Xvfb para a suíte gráfica. No macOS, os testes usam Tk/Aqua; não houve inspeção visual humana nem teste manual em hardware de usuário. A v1.8.0 ainda aguarda teste manual de usuário em Windows, Linux e macOS. A v1.7.2 havia sido executada manualmente no AMD Ryzen 5 5500 com Windows x64 em que a v1.7.1 não iniciava.
 
 ## Preparação
 

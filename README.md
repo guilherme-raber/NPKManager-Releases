@@ -2,16 +2,18 @@
 
 O NPKManager ajuda operadores a analisar equipamentos MikroTik RouterOS, revisar operações planejadas, salvar exports de configuração e executar somente a manutenção aprovada.
 
-**Versão disponível: 1.7.2 · executável Windows x64**
+**Versão disponível: 1.8.0 · Windows x64, Linux x86_64 e macOS (Apple Silicon e Intel)**
 
 - [Baixar a versão mais recente](https://github.com/guilherme-raber/NPKManager-Releases/releases/latest)
 - [Instalação e guia de operação](INSTALACAO-E-USO.md)
 - [Preparação do servidor de pacotes NPK](SERVIDOR-NPK.md)
 - [Histórico de versões](CHANGELOG.md)
 
-Na seção **Assets** da release, baixe o arquivo `NPKManager-<versão>.exe`. Os arquivos **Source code (zip)** e **Source code (tar.gz)** são gerados automaticamente pelo GitHub e correspondem somente a este repositório público de distribuição e documentação; eles não contêm o código-fonte da aplicação NPKManager.
+Na seção **Assets** da release, escolha o pacote do seu sistema. Cada pacote tem um arquivo `.sha256` correspondente para conferência de integridade. Os arquivos **Source code (zip)** e **Source code (tar.gz)** são gerados automaticamente pelo GitHub e correspondem somente a este repositório público de distribuição e documentação; eles não contêm o código-fonte da aplicação NPKManager.
 
-O executável não exige Python instalado. A distribuição atual é destinada a Windows x64 e foi validada no ambiente Windows disponível. Não foi validada em uma instalação Windows limpa; por isso não declaramos uma versão mínima oficial nem compatibilidade universal com Windows.
+Os pacotes são gerados e validados em runners nativos: Windows x64, Linux x86_64, macOS arm64 e macOS x86_64. A matriz executa 230 testes por sistema e um autoteste do aplicativo empacotado. Linux usa Xvfb para testes gráficos automatizados. macOS usa Tk/Aqua nos testes automatizados; isso não substitui inspeção visual ou teste manual. Windows v1.8.0 ainda não foi testado manualmente em computador de usuário. Linux e macOS também aguardam teste manual em máquinas/distribuições de usuários; compatibilidade ampla entre distribuições Linux não foi certificada.
+
+O aplicativo não exige Python instalado. O pacote macOS tem assinatura ad hoc de empacotamento, sem identidade Developer ID e sem notarização Apple. O Gatekeeper pode exibir um aviso. Consulte [Instalação e uso](INSTALACAO-E-USO.md) para verificar o SHA-256 e as instruções do macOS.
 
 ## Visão geral
 

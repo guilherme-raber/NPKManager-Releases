@@ -1,5 +1,13 @@
 # Histórico de versões
 
+## 1.8.0
+
+- Distribuições nativas para Windows x64 (`.exe`), Linux x86_64 (`.zip`) e macOS arm64 e x86_64 (`.zip` com `.app`).
+- Testes automatizados (230 por plataforma), autoteste do aplicativo empacotado e verificação de arquitetura executados em runners nativos Windows, Linux, macOS Apple Silicon e macOS Intel.
+- Linux usa Xvfb na validação gráfica. macOS usa Tk/Aqua nos testes automatizados, sem inspeção visual humana. Testes manuais de usuário da v1.8.0 em Windows, Linux e macOS permanecem pendentes.
+- SHA-256 individual publicado para cada pacote da release.
+- Os pacotes macOS têm assinatura ad hoc, sem Developer ID e sem notarização Apple; o Gatekeeper pode exigir autorização manual.
+
 ## 1.7.2
 
 - Substituído o bootloader que executava AVX-512 antes da abertura da interface. O pacote v1.7.1 podia encerrar em computadores x64 sem esse recurso.
