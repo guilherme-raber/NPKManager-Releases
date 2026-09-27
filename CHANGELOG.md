@@ -5,6 +5,7 @@
 - Substituído o bootloader que executava AVX-512 antes da abertura da interface. O pacote v1.7.1 podia encerrar em computadores x64 sem esse recurso.
 - A distribuição Windows volta a ser gerada com PyInstaller. As funções de inventário, segurança e atualização permanecem iguais às da v1.7.1.
 - Novo executável `NPKManager-1.7.2.exe` com SHA-256 `337D787B54D192D7E360EC5A266ACDD078CBE87D9248C8C283A7DD5BC5B8DD9C`.
+- Validação posterior: a v1.7.2 abriu e funcionou normalmente no AMD Ryzen 5 5500 com Windows x64 em que a v1.7.1 não iniciava.
 
 ## 1.7.1
 
