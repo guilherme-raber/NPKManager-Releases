@@ -8,7 +8,7 @@ Este guia descreve a distribuição pública do NPKManager 1.7.2 para Windows x6
 2. Em **Assets**, baixe `NPKManager-1.7.2.exe` e salve-o em uma pasta local.
 3. Execute o arquivo no Windows x64. Python não precisa estar instalado.
 
-O executável foi testado no ambiente Windows disponível, mas não em uma instalação Windows limpa. Não há uma versão mínima oficial do Windows declarada. Se o Windows ou as políticas da sua organização exibirem um aviso, confirme a origem do arquivo e siga as políticas de segurança locais antes de executá-lo.
+O executável também foi validado no AMD Ryzen 5 5500 com Windows x64 em que a v1.7.1 não iniciava. Ainda não foi testado em uma instalação Windows limpa. Não há uma versão mínima oficial do Windows declarada. Se o Windows ou as políticas da sua organização exibirem um aviso, confirme a origem do arquivo e siga as políticas de segurança locais antes de executá-lo.
 
 SHA-256 publicado para `NPKManager-1.7.2.exe`:
 
